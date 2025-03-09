@@ -1,5 +1,5 @@
 @media print {
-    .navbar {
+    .navbar, .img-container, .button, .footer, .sidebar, .header, .skip-link {
         display: none !important;
     }
 
@@ -8,15 +8,20 @@
     }
 
     body {
-        margin: 0.1rem;
-        padding-top: 10px;
+        margin: 0 !important;
+        padding: 0 !important;
         width: 100%;
     }
 
     * {
         box-shadow: none !important;
         border: none !important;    
-        background-color: white !important;
+        background: white !important;
         outline: none !important;
+    }
+
+    .right-side {
+        padding: 0 !important;
+        margin: 0 !important;
     }
 }
