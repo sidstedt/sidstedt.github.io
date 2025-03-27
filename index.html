@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/CSS/style.css" />
+    <script
+      src="https://kit.fontawesome.com/925a902ff0.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Dashboard</title>
+  </head>
+  <body class="background">
+    <header class="time-container">
+      <article class="time-widget">
+        <time class="time">00:00:00</time>
+        <div class="date">yyyy-mm-dd</div>
+      </article>
+    </header>
+    <div id="link-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Add a New Link</h2>
+        <form id="link-form">
+          <label for="link-title">Title:</label>
+          <input type="text" id="link-title" name="link-title" required />
+          <label for="link-url">URL:</label>
+          <input type="url" id="link-url" name="link-url" required />
+          <button type="submit">Add Link</button>
+        </form>
+      </div>
+    </div>
+    <div id="city-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Enter City</h2>
+        <form id="city-form">
+          <label for="city-input">City:</label>
+          <input type="text" id="city-input" name="city" required />
+          <button type="submit">Get Weather</button>
+        </form>
+      </div>
+    </div>
+    <main class="dashboard-container">
+      <h1 contenteditable="true" class="dashboard-title">The Dashboard</h1>
+      <section class="dashboard">
+        <article class="link-widget">
+          <h2>Quick Links</h2>
+          <button id="link-button" data-modal-target="link-modal">
+            <i class="fa-solid fa-circle-plus" id="link-icon"></i>
+            Add Link
+          </button>
+        </article>
+        <article class="weather-widget">
+          <h2>Todays weather</h2>
+          <button id="city-button" data-modal-target="city-modal">
+            <i class="fa-solid fa-circle-plus" id="link-icon"></i>
+            Get Weather
+          </button>
+        </article>
+        <article class="chuck-widget">
+          <h2>Chuck Norris</h2>
+          <button id="chuck-button">
+            <i class="fa-solid fa-circle-plus" id="link-icon"></i>
+            Randomize
+          </button>
+        </article>
+        <article class="notes-widget">
+          <h2>Notes</h2>
+          <textarea
+            class="notes-area"
+            placeholder="Content goes here"
+          ></textarea>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <article class="random-background">
+        <button id="get-background">↻ Randomize background</button>
+      </article>
+    </footer>
+    <script type="module" src="/JS/script.js"></script>
+  </body>
+</html>

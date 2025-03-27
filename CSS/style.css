@@ -1,0 +1,341 @@
+/* General reset and global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/* Body styles for layout and background */
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  /* overflow: hidden; */
+  background-color: pink;
+  overflow-y: auto;
+}
+
+/* Header styles for the time container */
+.time-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  position: fixed;
+  top: 0;
+  margin-top: 20px;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Time widget styles for displaying time and date */
+.time-widget {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+}
+
+.time {
+  font-weight: bold;
+  padding: 0px 20px;
+}
+
+.date {
+  padding: 0px 20px;
+}
+
+/* Dashboard container styles for centering content */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: calc(100vh - 10vh);
+  padding-top: 25vh;
+  gap: 10px;
+}
+
+/* Dashboard title styles */
+.dashboard-title {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 3rem;
+  
+}
+
+/* General heading styles */
+h2 {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+/* Dashboard grid layout for widgets */
+.dashboard {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 225px);
+  grid-template-rows: 10vh 1fr;
+  grid-template-areas: "b c d e";
+  column-gap: 10px;
+}
+
+/* General styles for dashboard articles (widgets) */
+.dashboard article {
+  display: flex;
+  flex-direction: column;
+  min-height: 350px;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  align-items: center;
+  padding-top: 20px;
+  border-radius: 15px;
+}
+
+/* Link widget styles */
+.link-widget {
+  grid-area: b;
+  align-self: start;
+  gap: 8px;
+  padding: 10px;
+}
+
+/* Styles for the link button */
+#link-button, #city-button, #chuck-button {
+  background-color: rgba(255, 255, 255, 0.4);
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  filter: invert(1);
+}
+
+/* Styles for links inside the link widget */
+.link-widget a {
+  font-size: 1.2rem;
+  text-align: center;
+  text-decoration: none !important;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+/* Styles for individual link items */
+.link-item, .chuck-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 8px;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.link-item:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+/* Delete button styles for link items */
+.delete-button {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  size: 0.5rem;
+  border: none;
+  color: grey;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.delete-button:hover {
+  color: darkred;
+}
+
+/* Favicon styles for links */
+.favicon {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+}
+
+/* Modal styles for the link modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  border-radius: 10px;
+}
+
+/* Close button styles for the modal */
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: black;
+  text-decoration: none;
+}
+
+/* Weather widget styles */
+.weather-widget {
+  grid-area: c;
+  align-self: start;
+  gap: 8px;
+  padding: 10px;
+}
+
+.weather-item {
+  display: grid;
+  grid-template-areas:
+    "icon title title"
+    "icon desc temp";
+  grid-template-columns: 50px 0.5fr 1fr;
+  gap: 5px;
+  align-items: center;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 8px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+
+.weather-icon {
+  width: 50px;
+  height: 50px;
+  grid-area: icon;
+}
+
+.weather-item h4 {
+  grid-area: title;
+  margin: 0;
+}
+
+.weather-item p:first-of-type{
+  grid-area: temp;
+  margin: 0;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.weather-item p:last-of-type {
+  grid-area: desc;
+  margin: 0;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 4px;
+}
+
+/* External widget styles */
+.chuck-widget {
+  grid-area: d;
+  align-self: start;
+  gap: 8px;
+  padding: 10px;
+}
+
+/* Notes widget styles */
+.notes-widget {
+  grid-area: e;
+  align-self: start;
+  gap: 8px;
+  padding: 10px;
+}
+
+/* Styles for the notes textarea */
+.notes-area {
+  margin-bottom: 10px;
+  flex: 1;
+  width: 95%;
+  resize: none;
+  padding: 8px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Footer styles */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Styles for the background image button */
+#get-background {
+  font-weight: bold;
+  border: none;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  padding: 0px 10px;
+  margin: 0 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+}
+
+#get-background:hover {
+  cursor: pointer;
+}
+
+/* Body background styles */
+body.background {
+  background-size: cover;
+  background-position: center;
+}
+
+/* Media query for responsive design on smaller screens */
+@media (max-width: 930px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "b"
+      "c"
+      "d"
+      "e";
+  }
+
+  .dashboard article {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  footer {
+    padding-top: 20px;
+  }
+}
